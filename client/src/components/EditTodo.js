@@ -13,6 +13,7 @@ const EditTodo = ({todo}) => {
                 headers: {"Content-Type": "applications/json"},
                 body: JSON.stringify(body)
             });
+            
            window.location = "/";
         } catch (err) {
             console.error(err.message);
@@ -30,7 +31,7 @@ const EditTodo = ({todo}) => {
             Edit
         </button>
 
-        <div class="modal" id={`id${todo.todo_id}`}>
+        <div class="modal" id={`id${todo.todo_id}`} onClick = {() => setDescription(todo.description)}>
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -53,12 +54,13 @@ const EditTodo = ({todo}) => {
                         data-dismiss="modal"
                         onClick = {e => updateDescription(e)}
                         >
-                        Edit
+                        Save
                         </button>
 
                         <button type="button" 
                         class="btn btn-danger" 
-                        data-dismiss="modal">
+                        data-dismiss="modal"
+                        onClick = {() => setDescription(todo.description)}>
                         Close
                         </button>
                     </div>
