@@ -14,7 +14,7 @@ const ListTodos = () => {
             });
 
 
-            setTodos(todos.filter(todo => todo.todo_id !== id));
+            setTodos(todos.filter(todo => todo?.todo_id !== id));
         } catch (err) {
             console.error(err.message);
         }
@@ -48,15 +48,15 @@ useEffect(() => {
     </thead>
     <tbody>
      {todos.map(todo => (
-        <tr key = {todo.todo_id}>
-            <td>{todo.description}</td>
+        <tr key = {todo?.todo_id}>
+            <td>{todo?.description}</td>
             <td>
                 <EditTodo todo = {todo} />
             </td>
             <td>
                 <button 
-                className = "btn btn-danger" 
-                onClick = {() => deleteTodo(todo.todo_id)}>
+                className = "btn btn-dark" 
+                onClick = {() => deleteTodo(todo?.todo_id)}>
                     Delete
                 </button>
             </td>

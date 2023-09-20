@@ -21,8 +21,6 @@ const onSubmitForm = async e => {
      }
     };
 
-
-
     return (
     <Fragment>
         <h1 className = "text-center mt-5">Todo List</h1>
@@ -33,7 +31,7 @@ const onSubmitForm = async e => {
             value = {description} 
             onChange = {e => setDescription(e.target.value)}
             />
-            <button className = "btn btn-success">ADD</button>
+            <button className = "btn btn-info">ADD</button>
         </form>
     </Fragment>
     );
