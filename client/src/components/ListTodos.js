@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
+import EditTodo from "./EditTodo";
+
 const ListTodos = () => {
     const [todos, setTodos] = useState ([]);
 
@@ -38,22 +40,19 @@ useEffect(() => {
     <Fragment> 
          <table className="table mt-5 text-center">
     <thead>
-      <tr key = {todos.todo_id}>
+      <tr>
         <th>Description</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-        {/*<tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr> */}
      {todos.map(todo => (
-        <tr>
+        <tr key = {todo.todo_id}>
             <td>{todo.description}</td>
-            <td>Edit</td>
+            <td>
+                <EditTodo todo = {todo} />
+            </td>
             <td>
                 <button 
                 className = "btn btn-danger" 
